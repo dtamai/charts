@@ -24,7 +24,7 @@ spec:
         {{- include "cubestore.selectorLabels" . | nindent 8 }}
         {{- if .Values.commonLabels }}
         {{- toYaml .Values.commonLabels | nindent 8 }}
-        {{- end }}        
+        {{- end }}
       {{- if .Values.commonAnnotations }}
       annotations:
       {{- toYaml .Values.commonAnnotations | nindent 8 }}
@@ -131,6 +131,16 @@ spec:
             - name: remotedir
               mountPath: /cube/data
             {{- end }}
+        - name: udp-socat
+          image: alpine/socat:latest
+          args:
+            - '-s'
+            - '-u'
+            - 'UDP-RECV:8125'
+            - '{{ printf "UNIX-CONNECT:%s" $.Values.metrics.socketPath }}'
+          volumeMounts:
+            - name: dsdsocket
+              mountPath: /var/run/datadog/
       volumes:
       {{- if not .Values.router.persistence.enabled }}
         - name: datadir
@@ -141,6 +151,9 @@ spec:
           persistentVolumeClaim:
             claimName: {{ printf "%s-remote-storage" (include "cubestore.fullname" .) }}
       {{- end }}
+        - name: dsdsocket
+          hostPath:
+            path: /var/run/datadog/
       {{- if .Values.router.affinity }}
       affinity:
         {{- toYaml .Values.router.affinity | nindent 8 }}
