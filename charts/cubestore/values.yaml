@@ -184,6 +184,10 @@ metrics:
   ##
   port:
 
+  ## Path to file to write metrics using UDS protocol
+  ##
+  socketPath:
+
 router:
   ## Service account for cubestore router to use
   ##
