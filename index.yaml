@@ -256,6 +256,29 @@ entries:
           url: https://github.com/gadsme/charts
     apiVersion: v2
     appVersion: 0.33.4
+    created: "2023-07-27T15:00:04.499204102Z"
+    description: A Helm chart for Cubestore
+    digest: fa23eba0db3df3a816702e8aa313b7eddc7954dd19cf1f3b48da79acd4753100
+    keywords:
+    - cube
+    - cubejs
+    - cubestore
+    maintainers:
+    - email: luc.vauvillier@gmail.com
+      name: Luc Vauvillier
+    name: cubestore
+    sources:
+    - https://github.com/cube-js/cube.js
+    type: application
+    urls:
+    - https://github.com/dtamai/charts/releases/download/cubestore-0.10.2/cubestore-0.10.2.tgz
+    version: 0.10.2
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/gadsme/charts
+    apiVersion: v2
+    appVersion: 0.33.4
     created: "2023-07-13T16:37:11.465887669Z"
     description: A Helm chart for Cubestore
     digest: 0691d8cd4f1d16f332d2589f27e709915ae12927dd9fc44b7f0669bda659c1a2
@@ -693,4 +716,4 @@ entries:
     urls:
     - https://github.com/gadsme/charts/releases/download/cubestore-0.1.0/cubestore-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-13T16:37:11.466135973Z"
+generated: "2023-07-27T15:00:04.499357102Z"
